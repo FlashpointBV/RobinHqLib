@@ -188,7 +188,7 @@ class Order implements \JsonSerializable
     /**
      * @return float
      */
-    public function getProfit(): float
+    public function getProfit(): ?float
     {
         return $this->profit;
     }
@@ -196,7 +196,7 @@ class Order implements \JsonSerializable
     /**
      * @param float $profit
      */
-    public function setProfit(float $profit)
+    public function setProfit(float $profit = null)
     {
         $this->profit = $profit;
     }
@@ -204,7 +204,7 @@ class Order implements \JsonSerializable
     /**
      * @return float
      */
-    public function getOldProfit(): float
+    public function getOldProfit(): ?float
     {
         return $this->oldProfit;
     }
@@ -236,7 +236,7 @@ class Order implements \JsonSerializable
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->url;
     }
@@ -268,7 +268,7 @@ class Order implements \JsonSerializable
     /**
      * @return array
      */
-    public function getListView(): array
+    public function getListView(): ?array
     {
         return $this->listView;
     }
@@ -293,7 +293,7 @@ class Order implements \JsonSerializable
     /**
      * @return array
      */
-    public function getDetailsView(): array
+    public function getDetailsView(): ?array
     {
         return $this->detailsViews;
     }
@@ -327,7 +327,6 @@ class Order implements \JsonSerializable
             'order_number' => $this->orderNumber,
             'email_address' => $this->emailAddress,
             'name' => $this->name,
-            'url' => $this->url,
             'revenue' => $this->revenue,
             'old_revenue' => $this->oldRevenue,
             'order_date' => $this->orderDate->format(Config::JSON_DATE_FORMAT),
@@ -342,6 +341,10 @@ class Order implements \JsonSerializable
             $data['profit'] = $this->profit;
         }
 
+        if ($this->url !== null) {
+            $data['url'] = $this->url;
+        }
+        
         if ($this->webstoreUrl !== null) {
             $data['webstore_url'] = $this->webstoreUrl;
         }

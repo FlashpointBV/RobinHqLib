@@ -14,7 +14,7 @@ class OrderEvent implements EventInterface
     /**
      * @var Order
      */
-    protected $order;
+    private $order;
 
     /**
      * @param Order $order

@@ -14,7 +14,7 @@ final class CustomerEvent implements EventInterface
     /**
      * @var Customer
      */
-    protected $customer;
+    private $customer;
 
     /**
      * @param Customer $customer

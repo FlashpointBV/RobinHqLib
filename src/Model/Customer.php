@@ -182,7 +182,7 @@ class Customer implements JsonSerializable
     /**
      * @return DateTimeInterface
      */
-    public function getLastOrderDate(): DateTimeInterface
+    public function getLastOrderDate(): ?DateTimeInterface
     {
         return $this->lastOrderDate;
     }
@@ -198,7 +198,7 @@ class Customer implements JsonSerializable
     /**
      * @return array
      */
-    public function getPanelView(): array
+    public function getPanelView(): ?array
     {
         return $this->panelView;
     }
